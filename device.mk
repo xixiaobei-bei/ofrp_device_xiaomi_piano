@@ -24,6 +24,11 @@ BOARD_SHIPPING_API_LEVEL := 34
 PRODUCT_SHIPPING_API_LEVEL := 34
 PRODUCT_TARGET_VNDK_VERSION := 34
 
+# qcom decryption
+PRODUCT_PACKAGES += \
+    qcom_decrypt \
+    qcom_decrypt_fbe
+
 # Dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
