@@ -102,6 +102,7 @@ finish() {
 			fi
 		fi
 	fi
+	resetprop persist.twrp.rotation 270
 	setprop crypto.ready 1
 	log_print 1 "crypto.ready=$(getprop crypto.ready)"
 	log_print 1 "Script complete. Device ready for decryption."
