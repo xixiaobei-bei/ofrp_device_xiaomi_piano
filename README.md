@@ -1,4 +1,4 @@
-# TWRP device tree for Xiaomi SM8750
+# OFRP device tree for Xiaomi Pad 8 Pro (piano)
 
 ## Features
 
@@ -13,5 +13,5 @@
 - [X] Vibrator
 - [X] WLAN
 
-## Build it yourself
-* [TWRP-Test/platform_manifest_twrp_aosp](https://github.com/TWRP-Test/platform_manifest_twrp_aosp)
+## Forked from
+* [YuKongA/twrp_device_xiaomi_sm8750_thales](https://github.com/YuKongA/twrp_device_xiaomi_sm8750_thales)
