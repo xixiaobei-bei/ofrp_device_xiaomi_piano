@@ -5,7 +5,7 @@
 #
 
 # BoardConfig.mk - TWRP device configuration for Xiaomi SM8750 piano
-BOARD_SYSTEMSDK_VERSIONS := 35
+BOARD_SYSTEMSDK_VERSIONS := 37
 
 # Building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
