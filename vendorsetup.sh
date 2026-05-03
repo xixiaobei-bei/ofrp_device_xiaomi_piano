@@ -78,11 +78,6 @@ F=$(find "device" -maxdepth 2 -name "piano")
 sed -i 's/value="#D34E38"/value="#000000"/g' "$F"/recovery/root/twres/splash.xml
 sed -i 's/value="#FF8038"/value="#000000"/g' "$F"/recovery/root/twres/splash.xml
 
-if [ -f "/home/adontoo/android/Magisk-v37.0.zip" ]; then
-        mkdir -p /tmp/misc/
-        cp /home/adontoo/android/Magisk-v37.0.zip /tmp/misc/
-        echo -e "${BLUE}-- Successfully Copy the Magisk.zip File to \"$OF_MAGISK\" ...${NC}"
-fi
 
 if [ -n "$FOX_USE_SPECIFIC_MAGISK_ZIP" ]; then
         if [ ! -f "$OF_MAGISK" ]; then
