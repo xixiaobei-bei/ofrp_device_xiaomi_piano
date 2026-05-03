@@ -30,9 +30,7 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 # Enable Fuse Passthrough
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.fuse.passthrough.enable=true \
-    ro.twrp.device_version=Xiaomi_Pad8_Pro \
-    ro.twrp.y_offset=0 \
-    ro.twrp.h_offset=0
+    ro.twrp.device_version=Xiaomi_Pad8_Pro
 
 # Otacert
 PRODUCT_EXTRA_RECOVERY_KEYS += \
