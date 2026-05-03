@@ -4,6 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# BoardConfig.mk - TWRP device configuration for Xiaomi SM8750 piano
+BOARD_SYSTEMSDK_VERSIONS := 35
+
 # Building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
 
@@ -12,9 +15,6 @@ BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_NINJA_USES_ENV_VARS += RTIC_MPGEN
 BUILD_BROKEN_PLUGIN_VALIDATION := soong-libaosprecovery_defaults soong-libguitwrp_defaults soong-libminuitwrp_defaults soong-vold_defaults
-
-# System SDK
-BOARD_SYSTEMSDK_VERSIONS := 35
 
 # Architecture
 TARGET_ARCH := arm64
