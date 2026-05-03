@@ -17,6 +17,7 @@
 #
 # 	Please maintain this if you use this script or any part of it
 #
+FDEVICE="piano"
 
 export LC_ALL="C"
 export FOX_AB_DEVICE=1
@@ -32,7 +33,6 @@ export OF_NO_RELOAD_AFTER_DECRYPTION=1
 export OF_NO_TREBLE_COMPATIBILITY_CHECK=1
 export FOX_DELETE_AROMAFM=1
 export OF_USE_GREEN_LED=0
-export TARGET_DEVICE_ALT="dada,haotian,xuanyuan"
 export FOX_VANILLA_BUILD=1
 export OF_NO_MIUI_PATCH_WARNING=1
 export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
