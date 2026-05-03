@@ -78,22 +78,4 @@ F=$(find "device" -maxdepth 2 -name "piano")
 sed -i 's/value="#D34E38"/value="#000000"/g' "$F"/recovery/root/twres/splash.xml
 sed -i 's/value="#FF8038"/value="#000000"/g' "$F"/recovery/root/twres/splash.xml
 
-
-if [ -n "$FOX_USE_SPECIFIC_MAGISK_ZIP" ]; then
-        if [ ! -f "$OF_MAGISK" ]; then
-        # some colour codes
-        RED='\033[0;31m'
-        GREEN='\033[0;32m'
-        ORANGE='\033[0;33m'
-        BLUE='\033[0;34m'
-        PURPLE='\033[0;35m'
-        echo -e "${RED}-- File \"$OF_MAGISK\" not found  ...${NC}"
-        echo -e "${ORANGE}-- Downloading...${NC}"
-        mkdir -p /tmp/misc
-        wget -O /tmp/misc/Magisk-v37.0.zip https://github.com/topjohnwu/Magisk/releases/download/v37.0/Magisk-v37.0.apk
-        echo -e "${BLUE}-- Successfully Downloaded the Magisk.zip File \"$OF_MAGISK\" ...${NC}"
-        echo -e "${PURPLE}-- Using A Custom Magisk.zip from the Downloaded file \"$OF_MAGISK\" ...${NC}"
-        echo -e "${GREEN}-- Done!"
-        fi
-fi
 #
