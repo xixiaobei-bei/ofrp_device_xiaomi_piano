@@ -63,19 +63,5 @@ export FOX_ENABLE_KERNELSU_NEXT_SUPPORT=1
 export FOX_ENABLE_SUKISU_SUPPORT=1
 export FOX_MAINTAINER_PATCH_VERSION=$(date +%y%m%d)
 export OF_MAINTAINER="AviderMin"
-export OF_MAGISK="/tmp/misc/Magisk-v37.0.zip"
-export FOX_USE_SPECIFIC_MAGISK_ZIP=/tmp/misc/Magisk-v37.0.zip
-export OF_SCREEN_H=2400
-export OF_STATUS_H=116
-export OF_STATUS_INDENT_LEFT=30
-export OF_STATUS_INDENT_RIGHT=30
 export OF_HIDE_NOTCH=1
 export OF_ALLOW_DISABLE_NAVBAR=0
-
-F=$(find "device" -maxdepth 2 -name "piano")
-# Change splash to black
-\cp -fp bootable/recovery/gui/theme/portrait_hdpi/splash.xml "$F"/recovery/root/twres/splash.xml
-sed -i 's/value="#D34E38"/value="#000000"/g' "$F"/recovery/root/twres/splash.xml
-sed -i 's/value="#FF8038"/value="#000000"/g' "$F"/recovery/root/twres/splash.xml
-
-#
