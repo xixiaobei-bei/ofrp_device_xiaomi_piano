@@ -8,8 +8,8 @@
         <fqname>IGatekeeper/default</fqname>
     </hal>
     <hal format="aidl">
-        <name>android.hardware.secure_element</name>
-        <fqname>ISecureElement/eSE1</fqname>
+        <name>vendor.qti.sla.service</name>
+        <fqname>ISlaAIDLService/default</fqname>
     </hal>
     <hal format="aidl">
         <name>android.hardware.nfc</name>
