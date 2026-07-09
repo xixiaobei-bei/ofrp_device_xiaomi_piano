@@ -56,9 +56,7 @@ on post-fs
     start odm.keymint-strongbox
     start se_omapi
 
-# Restart weaver after qseecomd listeners are registered (TEE ready)
-on property:vendor.sys.listeners.registered=true
-    restart odm.weaver-service
+# Weaver uses eSE/empty fallback (not TEE in recovery mode), no restart needed
 
 on boot
     setprop sys.usb.config adb
