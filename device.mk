@@ -24,10 +24,11 @@ BOARD_SHIPPING_API_LEVEL := 34
 PRODUCT_SHIPPING_API_LEVEL := 34
 PRODUCT_TARGET_VNDK_VERSION := 34
 
-# qcom decryption
-PRODUCT_PACKAGES += \
-    qcom_decrypt \
-    qcom_decrypt_fbe
+# Enable FakeOmapi (se_omapi) for decryption
+# - Fox_14.1 builds se_omapi from external/se_omapi (cloned by orangefox_sync.sh)
+# - Installs se_omapi.rc + se_omapi.xml via bootable/Recovery/etc/Android.mk
+# - UUID is hardcoded in external/se_omapi/include/Session.h (STM/NXP), no config needed
+TW_INCLUDE_OMAPI := true
 
 # Dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true

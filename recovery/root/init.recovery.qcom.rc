@@ -25,12 +25,10 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-import /init.recovery.qcom_decrypt.rc
 import /init.recovery.wifi.rc
 
 on init
     start vendor.boot-qti
-    setprop prepdecrypt.setpatch true
 
 on early-fs
     write /proc/sys/walt/sched_lib_name "recovery,magiskboot,Updater,updater,update_engine_sideload"
@@ -65,15 +63,10 @@ on property:twrp.modules.loaded=true
     write /sys/kernel/boot_adsp/ssr 1
     wait /sys/class/power_supply/battery
     start vendor.health-default
+    # Decryption chain (no keymint-strongbox needed - weaver+omapi is sufficient)
     start odm.weaver-service
     start se_omapi
     umount /firmware
-
-on property:ro.crypto.state=encrypted && property:ro.boot.dynamic_partitions=true
-    start odm.prepdecrypt
-
-on property:crypto.ready=1
-    start odm.umountvendor
 
 on property:servicemanager.ready=true
     setprop sys.boot_completed 1
