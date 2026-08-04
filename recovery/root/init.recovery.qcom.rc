@@ -46,6 +46,15 @@ on fs
     mkdir /mnt/vendor/persist 0775 shell system
     mkdir /tmp/persist 0775 shell system
     mount none /tmp/persist /mnt/vendor/persist bind rec
+    # Mount modem partition as /vendor/firmware_mnt - ssgtzd loads TA images
+    # (qwes.mbn/haventkn.mbn/tzsc.mbn per ta_config.json) from here.
+    # MUST happen BEFORE ssgtzd starts (early-boot): ssgtzd autoloads TA on
+    # startup and never retries - without the TA images, weaver MTEE
+    # OpenSession (TA 8AAAF201...) fails with ret=15. vfat is built into
+    # the kernel, no module needed. (/firmware is handled by fs_mgr DT fstab)
+    mkdir /vendor/firmware_mnt 0775 root root
+    wait /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix}
+    mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /vendor/firmware_mnt ro
     install_keyring
 
 on post-fs
@@ -55,9 +64,6 @@ on boot
     setprop sys.usb.config adb
 
 on property:twrp.modules.loaded=true
-    # Mount firmware
-    mkdir /firmware
-    mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /firmware ro
     # Load ADSP firmware for PMIC
     wait /sys/kernel/boot_adsp/ssr
     write /sys/kernel/boot_adsp/ssr 1
@@ -66,7 +72,6 @@ on property:twrp.modules.loaded=true
     # Decryption chain (no keymint-strongbox needed - weaver+omapi is sufficient)
     start odm.weaver-service
     start se_omapi
-    umount /firmware
 
 on property:servicemanager.ready=true
     setprop sys.boot_completed 1
